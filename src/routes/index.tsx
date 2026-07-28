@@ -54,14 +54,14 @@ function LandingPage() {
             AI-powered competitive intelligence
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-            Know what your{" "}
-            <span className="text-indigo-600">competitors</span>{" "}
-            are doing
+            Stop tracking competitors{" "}
+            <span className="text-indigo-600">in spreadsheets</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-gray-600">
-            PagePulse monitors your competitors' websites and delivers
-            plain-English AI digests when something meaningful changes — new
-            features, pricing updates, team additions, and more.
+            PagePulse monitors your competitors' websites and sends you a weekly
+            AI-written digest of what changed — and
+            <strong className="text-gray-900"> why it matters</strong>. No more
+            manual checks, no more raw diffs. Just the signal.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a href="/signup" className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 transition-colors">
@@ -169,10 +169,10 @@ function LandingPage() {
       <section className="px-4 py-20 sm:py-24" style={{ background: "linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #f5f3ff 100%)" }}>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-            Start monitoring your competitors today
+            Stop guessing. Start knowing.
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Free for up to 3 URLs. No credit card. No setup fees.
+            Free for 3 URLs. $29/mo unlimited. No credit card required.
           </p>
           <div className="mt-8">
             <a href="/signup" className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-sm hover:bg-indigo-500 transition-colors">

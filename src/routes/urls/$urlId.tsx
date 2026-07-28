@@ -79,8 +79,38 @@ function UrlDetailPage() {
     setSending(true); setSendMsg("");
     try {
       const result = await sendDigest({ data: { token: token!, urlId: Number(urlId), email: userInfo?.email ?? "" } });
-      if (result.success) { setSendMsg("Digest sent to your email!"); }
-      else { setSendMsg(result.error ?? "Failed to send email"); }
+      if (result.success) {
+        setSendMsg("Digest sent to your email!");
+      } else if (result.error === "NO_PROVIDER") {
+        // No email provider configured — open the user’s mail client with a pre-filled digest
+        const displayName = trackedUrl?.name || trackedUrl?.url || "tracked page";
+        const subject = encodeURIComponent("PagePulse Digest: " + displayName);
+        let changesText = "";
+        if (changes) {
+          if (changes.diffSummary) changesText = changes.diffSummary;
+          if (changes.titleChanged && changes.oldTitle && changes.newTitle) {
+            changesText += "\nTitle changed: \u201c" + changes.oldTitle + "\u201d \u2192 \u201c" + changes.newTitle + "\u201d";
+          }
+        }
+        const bodyLines = [
+          "PagePulse Digest",
+          "",
+          "Tracked URL: " + (trackedUrl?.url || ""),
+          "Page: " + displayName,
+          "",
+          "Summary:",
+          latestDigest?.summary || "No meaningful changes detected.",
+        ];
+        if (changesText) {
+          bodyLines.push("", "Changes:", changesText);
+        }
+        bodyLines.push("", "View full digest in PagePulse:", window.location.href);
+        const body = encodeURIComponent(bodyLines.join("\n"));
+        window.open("mailto:" + (userInfo?.email ?? "") + "?subject=" + subject + "&body=" + body, "_blank");
+        setSendMsg("Email client opened — send the pre-filled digest from there.");
+      } else {
+        setSendMsg(result.error ?? "Failed to send email");
+      }
     } catch (err) { setSendMsg(err instanceof Error ? err.message : "Network error"); }
     finally { setSending(false); }
   }
