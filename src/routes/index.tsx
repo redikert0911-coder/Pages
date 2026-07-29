@@ -22,6 +22,12 @@ function LandingPage() {
             </span>
           </a>
           <div className="flex items-center gap-3">
+            <a
+              href="/playbook"
+              className="rounded-xl px-3 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Playbook
+            </a>
             {signedIn ? (
               <a href="/dashboard" className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 transition-colors">
                 Dashboard
@@ -185,11 +191,16 @@ function LandingPage() {
       {/* Footer */}
       <footer className="border-t border-gray-200 bg-white px-4 py-8">
         <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row">
-          <div className="flex items-center gap-2">
-            <div className="flex h-6 w-6 items-center justify-center rounded bg-indigo-600 text-xs font-bold text-white">
-              P
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded bg-indigo-600 text-xs font-bold text-white">
+                P
+              </div>
+              <span className="text-sm font-medium text-gray-500">PagePulse</span>
             </div>
-            <span className="text-sm font-medium text-gray-500">PagePulse</span>
+            <a href="/playbook" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">
+              CI Playbook
+            </a>
           </div>
           <p className="text-xs text-gray-400">
             &copy; {new Date().getFullYear()} PagePulse. AI-powered competitive intelligence.
